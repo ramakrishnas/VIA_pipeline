@@ -1,0 +1,1 @@
+/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/Users/molpathuser1/othertools/:/Users/molpathuser1/othertools/annovar:/Users/molpathuser1/othertools/samtools-0.1.18:/Users/molpathuser1/othertools/BEDTools-Version-2.16.2/bin:/Users/molpathuser1/othertools/vcftools_0.1.10/bin:/Users/molpathuser1/othertools/tabix-0.2.6:/Volumes/Iontorrent/VIA_pipeline/:/usr/X11/bin

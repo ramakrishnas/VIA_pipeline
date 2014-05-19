@@ -1,0 +1,272 @@
+Auto_user_MOL-1_5_006
+Auto_user_MOL-2-Ion_AmpliSeq_Cancer_Panel_12-1044T_6_008
+Auto_user_MOL-3-ecoli_run_7_009
+Auto_user_MOL-4-AmpliSeq_A_09_12_12_9_012
+Auto_user_MOL-5-AmpliSeq_B_09_12_12_8_011
+Auto_user_MOL-7_3_003
+Auto_user_MOL-8_1_001
+Auto_user_MOL-9_2_002
+Auto_user_MOL-11-316CHIP_10_015
+Auto_user_MOL-12-316CHIPb_11_016
+Auto_user_MOL-14-316b_13_018
+Auto_user_MOL-15-316a_14_019
+Auto_user_MOL-16-318b_15_020
+Auto_user_MOL-17-318A_16_021
+Auto_user_MOL-18-318B_17_022
+Auto_user_MOL-19-MOL-19_18_023
+Auto_user_MOL-20-MOL-20_19_024
+Auto_user_MOL-24-CCP_A_23_028
+Auto_user_MOL-25-CCP_B_24_029
+Auto_user_MOL-26-CCP_C_25_030
+Auto_user_MOL-27-CCP_D_26_031
+Auto_user_MOL-28-CCP_A_27_032
+Reanalysis_of_MOL-7_014
+Reanalysis_of_MOL-8_after_genome_005
+Reanalysis_of_MOL-9_013
+Reanalysis_of_MOL-10_010
+Reanalysis_of_MOL-30
+Reanalysis_of_MOL-30_044
+user_MOL-8_after_genome_005
+#3/1/13 12:53 PM
+Auto_user_MOL-34-PC_NGa7_1pool_34_040
+Auto_user_MOL-35-CP_NGa7_3s_35_041
+Auto_user_MOL-32-NGa7_32_038
+Auto_user_MOL-31-316b_CP_NGa_31_036
+Auto_user_MOL-30-316_CP_NGa_30_035
+Auto_user_MOL-33-CP_NGa_1pool_33_039
+# 3/8/13 1:19 PM
+Auto_user_MOL-38-CHPv2_Mayo_38_047
+CA_13-053-CCP_MOL-25-28_Cancer_Panel_200v2_001_034
+Auto_user_MOL-22-CHPv2_21_026
+Auto_user_MOL-40-CHPv2_40_049
+Auto_user_MOL-37-CHPv2_Mayo_37_046
+Auto_user_MOL-41-CHPv2_41_050
+Auto_user_MOL-39-CHPv2_Mayo_39_048
+Auto_user_MOL-36-CHPv2_Mayo_36_045
+Auto_user_MOL-45-CHPv2_45_054(TVC3.4)
+Auto_user_MOL-42-CHPv2_42_051
+Auto_user_MOL-43-CHPv2_43_052
+Auto_user_MOL-44-CHPv2_44_053
+Wed Mar 27 16:05:26 2013
+Wed Mar 27 16:05:44 2013
+Auto_user_MOL-21-316A_20_025
+Wed Apr  3 09:16:22 2013
+Auto_user_MOL-46-CHPv2_46_055
+Auto_user_MOL-47-CHPv2_47_056(TVC3.4)
+Wed May  1 16:44:00 2013
+Auto_user_MOL-49-CHPv2_49_058
+Auto_user_MOL-51-CCP_51_060
+Auto_user_MOL-48-CHPv2_48_057
+Auto_user_MOL-55-CCP_55_065
+CA_DrMA_MOL-48-49_CHPV2_Cancer_Panel_200v2_001_066
+Auto_user_MOL-50-CCP_50_059
+Auto_user_MOL-57-CHP2_57_068
+Mon May  6 10:53:17 2013
+Reanalysis_for_MOL-53-CHPv2_071
+Reanalysis_for_MOL-52-CCP_069
+Reanalysis_for_MOL-54-CCP_070
+Wed May  8 13:19:19 2013
+Reanalysis_for_MOL-53-CHPv2_073
+Auto_user_MOL-56-CHPv2_56_067
+CA_CA_DrMA_MOL-48-49-53_CHPv2_Cancer_Panel_200v2_001_072
+Reanalysis_for_MOL-57-CHPv2_074
+Fri May 10 10:54:52 2013
+Auto_user_MOL-58-CHPv2_58_075
+Tue May 14 17:29:23 2013
+Auto_user_MOL-59-CCP_59_076
+Wed May 15 09:59:14 2013
+Auto_user_MOL-29-CHPv2_B_28_033
+Tue Jul  2 18:12:26 2013
+Auto_user_MOL-60-MOL-60_81_077_(old)
+Wed Jul  3 14:41:19 2013
+Auto_user_MOL-64-CHPv2_85_084
+Auto_user_MOL-63-MLP100D_84_083
+Wed Jul  3 14:55:03 2013
+Thu Jul 25 10:44:22 2013
+Auto_user_MOL-66-CHPv2_89_087
+CA_IIHG_MOL-50-55-CCP_CC_Panel_001_089
+Auto_user_MOL-67-CHPv2_90_088
+Fri Jul 26 16:42:54 2013
+Auto_user_MOL-68-CHPv2_92_090
+Thu Aug  1 17:26:24 2013
+Auto_user_MOL-69-CHPv2_93_091
+Fri Aug  2 10:03:36 2013
+Auto_user_MOL-71-CHPv2_95_093
+Tue Aug  6 12:24:26 2013
+Auto_user_MOL-70-CHPv2_94_092
+Mon Aug 19 14:10:43 2013
+Mon Aug 26 12:13:59 2013
+Wed Aug 28 12:39:31 2013
+Wed Aug 28 12:40:15 2013
+Auto_user_MOL-73-CHPv2_96_095(TVC 3.6)
+
+Tue Sep  3 17:06:12 2013
+Auto_user_MOL-60-MOL-60_81_077
+Wed Sep 11 10:40:43 2013
+Auto_user_MOL-47-CHPv2_47_056(TVC 3.6)
+Thu Sep 12 14:39:50 2013
+Auto_user_MOL-72-CHPv2_97_094
+Test_Reanalysis_user_MOL-63-MLP100D_JZ_096
+Fri Sep 13 10:55:42 2013
+Auto_user_MOL-45-CHPv2_45_054
+Wed Sep 18 14:11:16 2013
+
+Thu Sep 19 17:53:28 2013
+
+Thu Sep 19 18:53:10 2013
+Auto_user_MOL-47-CHPv2_47_056
+
+Fri Sep 20 12:57:25 2013
+Auto_user_MOL-75-CHPv2_99_099
+Auto_user_MOL-73-CHPv2_96_095
+Auto_user_MOL-74-CHPv2_98_098
+Mon Sep 23 18:05:23 2013
+
+Tue Sep 24 11:21:41 2013
+Reanalysis_for_MOL-75-CHPv2_99_100
+Tue Sep 24 11:24:24 2013
+Tue Sep 24 11:24:56 2013
+Thu Sep 26 18:27:11 2013
+Thu Sep 26 18:29:48 2013
+#Auto_user_MOL-76-CHPv2_RUN_76_100_101
+Fri Sep 27 11:23:54 2013
+Auto_user_MOL-77-CHPv2_RUN_77_101_102
+Wed Oct  9 13:08:53 2013
+Thu Oct 10 09:47:33 2013
+Fri Oct 11 15:46:46 2013
+Fri Oct 11 16:11:55 2013
+Tue Oct 15 09:50:25 2013
+Reanalysis_for_MOL-61-MLP_081
+Auto_user_MOL-65-MLP_86_085
+Auto_user_MOL-62-MLP100D_83_082
+#Auto_user_MOL-76-CHPv2_RUN_76_100_101
+Fri Oct 18 16:31:39 2013
+Fri Oct 18 16:34:20 2013
+Fri Oct 18 16:47:27 2013
+Fri Oct 18 16:51:15 2013
+Fri Oct 18 16:54:47 2013
+Fri Oct 18 16:56:31 2013
+Reanalysis_lin_MOL-72-CHPv2_097
+
+###################
+## Clincal data
+###################Wed Oct 23 15:20:05 2013
+Thu Oct 24 11:55:07 2013
+Auto_user_MOL-76-CHPv2_RUN_76_100_101
+Thu Oct 31 08:52:39 2013
+Auto_user_MOL-79-CHPv2_102_103
+Mon Dec 16 13:02:34 2013
+Auto_user_MOL-13-316a_12_017
+Auto_user_MOL-23-CCP_22_027
+Tue Jan 21 11:18:55 2014
+Tue Jan 21 11:19:09 2014
+Wed Jan 22 09:36:33 2014
+
+Reanalyze_R81_Lib31_110
+Reanalyze-MOL82SMDP_112
+Reanalysis_of_MOL-82-SMDP_116
+Reanalysis_of_MOL-81-CHPv2_115
+Reanalyze-MOL-81CHPv2_113
+Reanalyze-MOL-82CMDP_111
+Reanalysis-MOL-82-SMDP-3_114
+Auto_user_MOL-82_104_109
+Auto_user_MOL-81-CHPv2_R82_LIB31_2014_01_14_107_108
+literature
+Reanalysis_user_MOL-81-SMDP_107
+amplicon_analysis
+Auto_user_MOL-80_105_105
+Auto_user_MOL-79-MOL-80_103_104
+Reanalysis_of_MOL-81-CHPv2_115
+Reanalysis_of_MOL-81-CHPv2_117
+
+Wed Jan 22 14:07:51 2014
+#Reanalyze_user_MOL-81-CHPv2_110
+Sat Feb  1 13:14:03 2014
+Reanalysis_of_MOL-83-CHPv2_126
+Mon Feb  3 18:36:27 2014
+Mon Feb 10 10:28:39 2014
+Reanalysis_of_MOL-85-CHPv2_136
+Mon Feb 10 17:11:45 2014
+Reanalysis_of_MOL-87-SCP_140
+Tue Feb 11 14:05:19 2014
+Reanalysis_of_MOL-85-CHPv2_138
+Tue Feb 11 17:53:19 2014
+Reanalysis_user_MOL-79b-SCP_128
+Wed Feb 12 10:55:39 2014
+Auto_user_MOL-88-SCP_4_141
+Fri Feb 14 10:05:49 2014
+Reanalysis_of_MOL-90-CHPv2_144
+Mon Feb 17 09:40:46 2014
+Auto_user_MOL-89-CHPv2_121_142
+
+Mon Feb 17 12:47:56 2014
+Auto_user_MOL-91-CHPv2_123_145
+Mon Feb 17 13:51:59 2014
+Auto_user_MOL-92-CHPv2_124_146
+
+Fri Feb 21 13:54:44 2014
+Auto_user_MOL-93-CHPv2_125_147
+Mon Mar  3 09:29:52 2014
+Auto_user_MOL-95-CHPv2_126_149
+Fri Mar  7 11:16:50 2014
+
+Mon Mar 10 10:15:10 2014
+Auto_user_MOL-96-CHPv2_128_150
+Thu Mar 13 09:36:59 2014
+Auto_user_MOL-97-FSHD2-repeat_129_151
+Mon Mar 17 11:36:20 2014
+Auto_user_MOL-99-CHPv2_131_153
+Mon Mar 17 11:57:32 2014
+
+Mon Mar 17 18:01:33 2014
+Reanalysis_of_MOL-98-CHPv2_156
+Wed Mar 19 13:14:04 2014
+Auto_user_MOL-100-CHPv2_132_157
+Thu Mar 20 09:31:56 2014
+Reanalysis_MOL-9_013
+Thu Mar 20 11:25:30 2014
+Auto_user_MOL-101-CHPv2_134_158
+Wed Mar 26 10:59:26 2014
+Auto_user_MOL-103-SCP_136_160
+Thu Mar 27 10:11:26 2014
+Auto_user_MOL-104-CHPv2_137_161
+
+Fri Mar 28 18:20:32 2014
+Auto_user_MOL-105-CHPv2_138_163
+Mon Mar 31 10:50:03 2014
+Auto_user_MOL-106-CHPv2_139_164
+Mon Mar 31 13:03:10 2014
+Auto_user_MOL-107-CHPv2_140_165
+Mon Mar 31 13:48:51 2014
+Auto_user_MOL-108-CHPv2_135_166
+Wed Apr  9 12:07:11 2014
+Auto_user_MOL-109-CHPv2_141_167
+Wed Apr  9 13:06:15 2014
+Auto_user_MOL-110-SCP_142_168
+Wed Apr 16 10:18:48 2014
+Auto_user_MOL-111-CHPv2_143_169
+Thu Apr 17 10:14:57 2014
+Auto_user_MOL-112-CHPv2_144_170
+Mon Apr 21 13:20:34 2014
+Auto_user_MOL-114-SCP_146_172
+Thu Apr 24 10:49:36 2014
+Auto_user_MOL-115-CHPv2_147_173
+Fri May  2 08:07:55 2014
+Auto_user_MOL-117-CHPv2_149_175
+
+Tue May  6 17:05:25 2014
+Auto_user_MOL-118-SCP_150_176
+Thu May  8 07:50:20 2014
+
+Thu May  8 16:03:38 2014
+Auto_user_MOL-119-CHPv2_151_177
+Thu May  8 18:28:01 2014
+
+Fri May  9 14:59:24 2014
+Auto_user_MOL-120-CHPv2_152_178
+Mon May 12 12:25:11 2014
+Auto_user_MOL-122-SCP_156_180
+Thu May 15 10:18:51 2014
+Auto_user_MOL-123-CHPv2_157_181
+Fri May 16 07:50:01 2014
+Auto_user_MOL-124-CHPv2_158_182

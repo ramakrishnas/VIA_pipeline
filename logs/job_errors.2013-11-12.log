@@ -1,0 +1,20 @@
+-- 19:09:26 --
+python: can't open file 'via_pipeline_v1.1.py': [Errno 2] No such file or directory
+
+-- 19:12:53 --
+rsync: ERROR: cannot stat destination "/Volumes/pathology/Molecular Pathology/Active Validated Tests/NGS CHPv2 data/PGM CHPv2 results/": Permission denied (13)
+rsync error: errors selecting input/output files, dirs (code 3) at /SourceCache/rsync/rsync-42/rsync/main.c(516) [receiver=2.6.9]
+rsync: connection unexpectedly closed (8 bytes received so far) [sender]
+rsync error: error in rsync protocol data stream (code 12) at /SourceCache/rsync/rsync-42/rsync/io.c(452) [sender=2.6.9]
+
+-- Tue, 12 Nov 2013 19:17:22 +0100 --
+rsync: ERROR: cannot stat destination "/Volumes/pathology/Molecular Pathology/Active Validated Tests/NGS CHPv2 data/PGM CHPv2 results/": Permission denied (13)
+rsync error: errors selecting input/output files, dirs (code 3) at /SourceCache/rsync/rsync-42/rsync/main.c(516) [receiver=2.6.9]
+rsync: connection unexpectedly closed (8 bytes received so far) [sender]
+rsync error: error in rsync protocol data stream (code 12) at /SourceCache/rsync/rsync-42/rsync/io.c(452) [sender=2.6.9]
+
+-- Tue, 12 Nov 2013 19:17:23 +0100 --
+rsync: ERROR: cannot stat destination "/Volumes/pathology/Molecular Pathology/Active Validated Tests/NGS CHPv2 data/PGM CHPv2 results/": Permission denied (13)
+rsync error: errors selecting input/output files, dirs (code 3) at /SourceCache/rsync/rsync-42/rsync/main.c(516) [receiver=2.6.9]
+rsync: connection unexpectedly closed (8 bytes received so far) [sender]
+rsync error: error in rsync protocol data stream (code 12) at /SourceCache/rsync/rsync-42/rsync/io.c(452) [sender=2.6.9]

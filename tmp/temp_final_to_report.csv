@@ -1,0 +1,3 @@
+'#Chrom','Position','Gene Sym','Exon','AAChange','ExonicFunc','COSMIC64','Type','Ref','Variant','Var Freq','Var QUAL','Ref Cov','Var Cov','dbSNP137','1000g2012apr_ALL','ESP6500_ALL','Target ID','HotSpot ID','LJB_PhyloP_Pred','LJB_SIFT_Pred','LJB_PolyPhen2_Pred','LJB_LRT_Pred','LJB_MutationTaster_Pred','LJB_GERP++'
+chr4,55152074,PDGFRA,exon7,NM_006218:c.A1173G:p.I391M,nonsynonymous SNV,ID=COSM328028;OCCURENCE=1(haematopoietic_and_lymphoid_tissue),SNP,A,G,32.28,45.0,839,400,rs2230461,0.07,0.109595,CHP2_PDGFRA_4,---,N,NA,B,N,P,0.149
+chr4,55946257,KDR,exon14,NM_022965:c.G1820C:p.C607S,nonsynonymous SNV,,SNP,G,C,31.83,43.0,347,162,,,,CHP2_KDR_8,COSM48875;,C,D,D,NA,D,4.44
