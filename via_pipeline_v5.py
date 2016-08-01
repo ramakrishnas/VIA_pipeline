@@ -56,7 +56,11 @@ CP_NGa_bed = "/Volumes/Iontorrent/ampliseq_files/Custom_panel/IAD34427_Designed_
 MMP_bed = "/Volumes/Iontorrent/ampliseq_files/Melanoma_panel/MMP_IAD77906_231_modified.bed"
 SCP_bed = "/Volumes/Iontorrent/ampliseq_files/Small_cancer_panel/SCP_IAD54614_124_Designed.bed"
 SCP20_bed="/Volumes/Iontorrent/ampliseq_files/Small_cancer_panel/SCP20_IAD74300_182_modified.bed"
-MPCP_bed = "/Volumes/Iontorrent/ampliseq_files/molpath_panel/MPCP23_IAD77734_236_modified.bed"
+#MPCP_bed = "/Volumes/Iontorrent/ampliseq_files/molpath_panel/MPCP23_IAD77734_236_modified.bed"
+MPCP_bed = "/Volumes/Iontorrent/ampliseq_files/molpath_panel/MPCP.bed"
+
+MPCP_ARMS_bed = "/Volumes/Iontorrent/ampliseq_files/molpath_panel/MPCP_ARMS.bed"
+
 AML_bed = "/Volumes/Iontorrent/ampliseq_files/AML_panel/AML_IAD63562_182_Designed_npm1.bed"
 
 
@@ -203,6 +207,12 @@ def analyse_sample(barcode, folder, chip, sname):
 		amplicon_bed = MPCP_bed
 #		NGS_results = "/Volumes/Iontorrent/PGM_MPCP_results/"
 #		shared_drive = "/Volumes/pathology/Molecular\ Pathology/Active\ Validated\ Tests/NGS\ MPCP\ data/PGM\ MPCP\ results/"
+
+	elif chip == 'MPCP_ARMS':
+		chiptype = "MPCP_ARMS"
+		amplicon_bed = MPCP_ARMS_bed
+#		NGS_results = "/Volumes/Iontorrent/PGM_MPCP_results/"
+#		shared_drive = "/Volumes/pathology/Molecular\ Pathology/Active\ Validated\ Tests/NGS\ MPCP\ data/PGM\ MPCP\ results/"
 		
 	elif chip == 'AML':
 		chiptype = "AML"
@@ -280,11 +290,8 @@ def analyse_sample(barcode, folder, chip, sname):
 	somatic_filter(os.path.join(NGS_results+sname+"/"+sname+"_prefiltered.tsv"))
 
 #	stringp = "paste -d \"\\t\" "+NGS_results+"/"+sname+"/"+sname+"_final_to_report.tsv "+NGS_results+"/"+sname+"/"+sname+"_filtered.tsv | cut -f1-13,45,63-92 >"+NGS_results+"/"+sname+"/"+sname+"_temp_report.tsv"
-
 #	os.system(stringp)
-	
 #	os.system("mv "+os.path.join(NGS_results+sname+"/"+sname+"_temp_report.tsv")+" "+os.path.join(NGS_results+sname+"/"+sname+"_final_to_report.tsv"))
-
 #	print stringp
 	
 	with open(os.path.join(NGS_results+sname+"/"+sname+"_final_to_report.csv"),"a") as repf:
