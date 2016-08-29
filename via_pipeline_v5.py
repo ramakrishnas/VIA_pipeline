@@ -74,8 +74,8 @@ hg19_index = "/Volumes/Iontorrent/ampliseq_files/hg19.fasta.fai"
 
 coverage_dir = "/Volumes/Iontorrent/amplicon_analysis/coveragebed"
 
-NGS_results = "/Volumes/Iontorrent/NGS_V5_data/" #Outdir_local
-shared_drive = "/Volumes/pathology/Molecular\ Pathology/Active\ Validated\ Tests/NGS\ V5\ data/" #Outdir on S-drive
+NGS_results = "/Volumes/Iontorrent/NGS_V5_Results/" #Outdir_local
+shared_drive = "/Volumes/pathology/Molecular\ Pathology/Active\ Validated\ Tests/NGS\ V5\ data/S5\ Results/" #Outdir on S-drive
 
 ##looks for vcf file under each barcode
 
@@ -189,59 +189,59 @@ def analyse_sample(barcode, folder, chip, sname):
 	vcf_file = os.path.join(vardir+"/"+barcode+"/TSVC_variants.vcf.gz")	
 	hs_calls = os.path.join(vardir+"/"+barcode+"/alleles.xls")	
 
-	if chip == 'CHPv2':
+	if chip.lower() == 'chpv2':
 		chiptype = "CHPv2"
 		amplicon_bed = CHPv2_bed
 #		NGS_results = CHPv2_results
 #		shared_drive = "/Volumes/pathology/Molecular\ Pathology/Active\ Validated\ Tests/NGS\ CHPv2\ data/PGM\ CHPv2\ results/"
 
-	elif chip == 'SCP':
+	elif chip.lower() == 'scp':
 		chiptype = "SCP"
 		amplicon_bed = SCP_bed
 #		NGS_results = SCP_results
 #		shared_drive = "/Volumes/pathology/Molecular\ Pathology/Active\ Validated\ Tests/NGS\ SCP\ data/PGM\ SCP\ results/"
  
 			#Kitchen sink / molpath custom gene panel
-	elif chip == 'MPCP':
+	elif chip.lower() == 'mpcp':
 		chiptype = "MPCP"
 		amplicon_bed = MPCP_bed
 #		NGS_results = "/Volumes/Iontorrent/PGM_MPCP_results/"
 #		shared_drive = "/Volumes/pathology/Molecular\ Pathology/Active\ Validated\ Tests/NGS\ MPCP\ data/PGM\ MPCP\ results/"
 
-	elif chip == 'MPCP_ARMS':
+	elif chip.lower() == 'mpcp_arms':
 		chiptype = "MPCP_ARMS"
 		amplicon_bed = MPCP_ARMS_bed
 #		NGS_results = "/Volumes/Iontorrent/PGM_MPCP_results/"
 #		shared_drive = "/Volumes/pathology/Molecular\ Pathology/Active\ Validated\ Tests/NGS\ MPCP\ data/PGM\ MPCP\ results/"
 		
-	elif chip == 'AML':
+	elif chip.lower() == 'aml':
 		chiptype = "AML"
 		amplicon_bed = AML_bed
 #		NGS_results = "/Volumes/Iontorrent/PGM_AML_results/"
 #		shared_drive = "/Volumes/pathology/Molecular\ Pathology/Active\ Validated\ Tests/NGS\ AML\ data/PGM\ AML\ results/"
 
-	elif chip == 'SMCHD1':
+	elif chip.lower() == 'smchd1':
 		chiptype = "SMCHD1"
 		amplicon_bed = SMCHD1_bed
 #		NGS_results = "/Volumes/Iontorrent/PGM_SMCHD1_results/"
 #		shared_drive = "/Volumes/pathology/Molecular\ Pathology/Active\ Validated\ Tests/NGS\ SMCHD1\ data/PGM\ SMCHD1\ results/"
 		mut_test = "germline"
 
-	elif chip == 'DYSF':
+	elif chip.lower() == 'dysf':
 		chiptype = "DYSF"
 		amplicon_bed = DYSF_bed
 #		NGS_results = "/Volumes/Iontorrent/PGM_DYSF_results/"
 #		shared_drive = "/Volumes/pathology/Molecular\ Pathology/Active\ Validated\ Tests/NGS\ DYSF\ data/PGM\ DYSF\ results/"
 		mut_test = "germline"
 
-	elif chip == 'DGP':
+	elif chip.lower() == 'dgp':
 		chiptype = "DGP"
 		amplicon_bed = DGP_bed
 #		NGS_results = "/Volumes/Iontorrent/PGM_DGP_validation/"
 #		shared_drive = "/Volumes/pathology/Molecular\ Pathology/All_NGS_results/DGP_validation/"
 		mut_test = "germline"
 
-	elif chip == 'TP53':
+	elif chip.lower() == 'tp53':
 		chiptype = "TP53"
 		amplicon_bed = TP53_bed
 #		NGS_results = "/Volumes/Iontorrent/PGM_TP53_validation/"
@@ -265,7 +265,19 @@ def analyse_sample(barcode, folder, chip, sname):
 	
 	os.system("mkdir "+NGS_results+sname)
 
-	bamfile = vardir.split("plugin_out")[0]+barcode+"_rawlib.bam"
+	
+	if os.path.exists(vardir.split("plugin_out")[0]+barcode+"_rawlib.bam"):
+		bamfile = vardir.split("plugin_out")[0]+barcode+"_rawlib.bam"
+		
+	elif os.path.exists(vardir+"/"+barcode+"_rawlib.realigned.bam"):
+		bamfile = vardir+"/"+barcode+"_rawlib.realigned.bam"
+	
+	elif os.path.exists(vardir+"/"+barcode+"/"+barcode+"_rawlib_processed.bam"):
+		bamfile = vardir+"/"+barcode+"/"+barcode+"_rawlib_processed.bam"
+		
+	else:
+		print 'Please check the folder for BAM files'
+		
 	os.system("cp "+bamfile+"* "+NGS_results+sname)
 #	tvcf = NGS_results+sname+'/'+sname+vcf_file.split('/TSVC')[1]
 
@@ -297,9 +309,10 @@ def analyse_sample(barcode, folder, chip, sname):
 	with open(os.path.join(NGS_results+sname+"/"+sname+"_final_to_report.csv"),"a") as repf:
 		repf.write("\n\n\n\nPanel given for this barcode "+chip+'\n')
 		repf.write("Bed file used in the analysis "+amplicon_bed+'\n')
+		repf.write("Total number of variants found _____\n")
 		repf.write("There are %d low Covered amplicons with depth <250:\n"%lowl)
 	os.system("cat "+os.path.join(NGS_results+sname+"/"+sname+"_low_cov_regs.txt")+" >> "+NGS_results+sname+"/"+sname+"_final_to_report.csv")
-	
+
 	print "copying files from "+NGS_results+" to "+shared_drive
 	print NGS_results
 	print shared_drive
@@ -349,8 +362,9 @@ def analyze_data(dir):
 				chip.append(line.strip().split(",")[1])
 
 	except IOError as e:
-		print "Unable to open file barcode_test.csv" #Does not exist OR no read permissions
-    
+		print "Barcode file, barcode_test.csv not found" #Does not exist OR no read permissions
+		sys.exit(1)
+
 	print "Number of samples in the run :"
 	print len(bc)
 	print bc	
@@ -368,7 +382,22 @@ def analyze_data(dir):
 		
 		print os.path.exists(vardir+"/"+i+"/TSVC_variants.vcf")
 		
-		if os.path.exists(vardir+"/"+i+"/TSVC_variants.vcf") and os.path.getsize(watchdir+"/"+run_dir+"/"+i+"_rawlib.bam") > 10000000:
+		if os.path.exists(watchdir+"/"+run_dir+"/"+i+"_rawlib.bam"):
+			raw_bam = watchdir+"/"+run_dir+"/"+i+"_rawlib.bam"
+			bam_size = os.path.getsize(watchdir+"/"+run_dir+"/"+i+"_rawlib.bam")
+		
+		elif os.path.exists(vardir+"/"+i+"_rawlib.realigned.bam"):
+			raw_bam = vardir+"/"+i+"_rawlib.realigned.bam"
+			bam_size = os.path.getsize(vardir+"/"+i+"_rawlib.realigned.bam")
+		
+		elif os.path.exists(vardir+"/"+i+"/"+i+"_rawlib_processed.bam"):
+			raw_bam = vardir+"/"+i+"/"+i+"_rawlib_processed.bam"
+			bam_size = os.path.getsize(vardir+"/"+i+"/"+i+"_rawlib_processed.bam")
+	
+		else:
+			print "BAM file not found, Please check and rerun the analysis"
+			
+		if os.path.exists(vardir+"/"+i+"/TSVC_variants.vcf") and bam_size > 10000000:
 			print "bam and variant files present for "+i
 			print "panel is "+chip[count]
 			with open(os.path.join(vardir+"/"+i+"/TSVC_variants.vcf"),"rb") as vcff:
@@ -380,11 +409,10 @@ def analyze_data(dir):
 			panel = chip[count] 
 			samplename = "R"+run+"-"+panel+"_BC"+i.split("_")[1]+"_"+molid+sequencer			
 			analyse_sample(i, vardir, panel, samplename)
-			count+=1 
 			
 		else:
-			sys.exit("Please check the folder "+vardir)
-
+			print "Please check the folder "+vardir
+		count+=1	
 		
 		
 	print os.path.abspath('')
