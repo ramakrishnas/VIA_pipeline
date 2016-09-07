@@ -100,11 +100,11 @@ def find_var_Dir(directory, var_dir):
 	for dir in glob.glob(var_caller+'*'):
 		print dir
 #		if os.path.isdir(dir) and var_dir in dir:
-	dirs[dir] = os.path.getctime(dir)
+		dirs[dir] = os.path.getctime(dir)
 
 	all_vardirs = sorted(dirs.iteritems(), key=operator.itemgetter(1))
 #	print lister
-	return all_vardirs[-1][0]
+	return all_vardirs[-1][0] #get last item [-1] and folder name [0]
     
 
 def somatic_filter(in_file):
@@ -116,6 +116,7 @@ def somatic_filter(in_file):
 
 		for line in inf:
 			parts = line.strip().split('\t',)
+			
 			hgvsc = ''
 			hgvsp = ''
 			exon = ''
@@ -127,8 +128,15 @@ def somatic_filter(in_file):
 				outf.writerow([parts[0], parts[1], parts[16], parts[21], 'HGVSvariant', parts[4], 'RefseqID', parts[5], parts[6], parts[8], parts[9], parts[10], parts[14]])
 	   		
 	   		elif float(parts[4]) >= 0.04 and int(parts[8]) >= 100 and parts[14] != 'synonymous_variant' and parts[14] != 'intron_variant':
-	  			exon = parts[21].split('/')[0]
+		   		parts[4] = float(parts[4])*100
+		   		
+				if len(parts[21].split('/')) > 1:
+					exon = parts[21].split('/')[0]
+					parts[21] = exon+'('+parts[21].split('/')[1]+')'
 
+				else:
+					exon = parts[21]
+		   		
 	  			if len(parts[23].split(':')) > 1:
 	  				hgvsc = parts[23].split(':')[1]
 	  			else:
@@ -147,7 +155,7 @@ def somatic_filter(in_file):
 	  				hgvs = ''
 
 #	  			print hgvs	
-	  			alt_freq = float(parts[4])*100
+	  			alt_freq = parts[4]
 
 	 			if len(parts) < 52:
 		   			outf2.writerow(parts)
@@ -181,10 +189,11 @@ def coverage_filter(in_file):
 def analyse_sample(barcode, folder, chip, sname): 
 	global amplicon_bed, hotspot_bed, samplename, NGS_results, shared_drive, sequencer, chiptype, mut_test
 	vardir = folder
-	print chip
-	print len(chip)
 	print barcode
 	print folder
+	print chip
+	print len(chip)
+	print sname	
 	
 	vcf_file = os.path.join(vardir+"/"+barcode+"/TSVC_variants.vcf.gz")	
 	hs_calls = os.path.join(vardir+"/"+barcode+"/alleles.xls")	
@@ -207,8 +216,8 @@ def analyse_sample(barcode, folder, chip, sname):
 		amplicon_bed = MPCP_bed
 #		NGS_results = "/Volumes/Iontorrent/PGM_MPCP_results/"
 #		shared_drive = "/Volumes/pathology/Molecular\ Pathology/Active\ Validated\ Tests/NGS\ MPCP\ data/PGM\ MPCP\ results/"
-
-	elif chip.lower() == 'mpcp_arms':
+	
+	elif chip.lower() == 'mpcp_arms' or chip.lower() == 'mpcparms':
 		chiptype = "MPCP_ARMS"
 		amplicon_bed = MPCP_ARMS_bed
 #		NGS_results = "/Volumes/Iontorrent/PGM_MPCP_results/"
@@ -404,7 +413,8 @@ def analyze_data(dir):
 				for line in vcff:
 					if '#CHROM' in line and 'POS' in line and 'ID' in line:
 						molid = line.strip().split('\t',)[9]
-						print molid	
+						molid = molid.replace (" ", "-")
+						print "Sample name as per VCF file is "+molid	
 
 			panel = chip[count] 
 			samplename = "R"+run+"-"+panel+"_BC"+i.split("_")[1]+"_"+molid+sequencer			
