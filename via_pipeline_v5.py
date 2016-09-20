@@ -174,14 +174,19 @@ def somatic_filter(in_file):
 
 
 def coverage_filter(in_file):
-	with open(in_file,"rb") as inf, open(''.join([in_file.strip("_cov_regs.txt"), "_low_cov_regs.txt"]),"wb") as outf:
-		outf.write('Chr\tstart\tstop\tamplicon\texon\tGenes\tDepth\ttargetbp\ttarget_covered\ttarget_portion\n')
+	with open(in_file,"rb") as inf, open(''.join([in_file.strip("_cov_regs.txt"), "_low_cov_regs.csv"]),"wb") as outf:
+	#	out_csv = csv.writer(outf, delimiter=',', quoting=csv.QUOTE_ALL)
+		header = ['Chr', 'start', 'stop', 'amplicon', 'exon', 'Genes', 'Depth', 'targetbp', 'target_covered', 'target_portion']
+		outf.write(', '.join([i for i in header]))
 		ll = 0
 		for line in inf:
 			parts = line.strip().split('\t',)
-	    	if int(parts[6]) <= 250:
-				outf.write(line)
+			if	int(parts[6]) <= 250:
 				ll += 1
+				print parts[6]
+				print "gret"
+				outf.write('\n')
+				outf.write(', '.join([i for i in parts]))
 		return ll
 			    
 ##coverage analysis of amplicon regions
@@ -320,7 +325,7 @@ def analyse_sample(barcode, folder, chip, sname):
 		repf.write("Bed file used in the analysis "+amplicon_bed+'\n')
 		repf.write("Total number of variants found _____\n")
 		repf.write("There are %d low Covered amplicons with depth <250:\n"%lowl)
-	os.system("cat "+os.path.join(NGS_results+sname+"/"+sname+"_low_cov_regs.txt")+" >> "+NGS_results+sname+"/"+sname+"_final_to_report.csv")
+	os.system("cat "+os.path.join(NGS_results+sname+"/"+sname+"_low_cov_regs.csv")+" >> "+NGS_results+sname+"/"+sname+"_final_to_report.csv")
 
 	print "copying files from "+NGS_results+" to "+shared_drive
 	print NGS_results
