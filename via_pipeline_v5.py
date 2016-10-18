@@ -23,7 +23,7 @@ global annovar, amplicon_bed, coverage_dir, watchdir, run_dir, var_caller, hg19_
 CCP_bed, CP_NGa_bed, hotspot_bed, chiptype, runsdb, sequencer, mut_test, fil_par, \
 temp_hs_bed, var_caller, tvc, somatic_tests, germline_tests, bc_chip_match
 
-somatic_tests = ["CHPv1", "CHPv2", "CP_NGa", "CCP", "MLP", "SCP", "AML", "MPCP", "TP53", "Myeloma"]
+somatic_tests = ["CHPv1", "CHPv2", "CP_NGa", "CCP", "MLP", "SCP", "AML", "MPCP", "TP53", "Myeloma", "Melanoma"]
 germline_tests = ["SMCHD1", "DGP", "DYSF"]
 mut_test = "somatic"
 
@@ -49,11 +49,11 @@ shared_drive = "/Volumes/pathology/Molecular\ Pathology/All_NGS_results/"
 '''
 
 CHPv1_bed = "/Volumes/Iontorrent/ampliseq_files/Cancer_hotspot_panel_1/HSMv12.1_reqions_NO_JAK2_NODUP.bed"
-CHPv2_bed = "/Volumes/Iontorrent/ampliseq_files/Cancer_hotspot_panel_2/4475346_CHP2_designed_20120806.bed"
+CHPv2_bed = "/Volumes/Iontorrent/ampliseq_files/Cancer_hotspot_panel_2/CHP2/CHP2.20131001.designed.bed"
+#"/Volumes/Iontorrent/ampliseq_files/Cancer_hotspot_panel_2/4475346_CHP2_designed_20120806.bed"#old file
 CCP_bed = "/Volumes/Iontorrent/ampliseq_files/Comprehensive_cancer_panel/CCP_Amplicons.bed"
 CP_NGa_bed = "/Volumes/Iontorrent/ampliseq_files/Custom_panel/IAD34427_Designed_v2.bed"
 #MLP_bed = "/Volumes/Iontorrent/ampliseq_files/Melanoma_panel/MLP_IAD40174_30_Designed_genes.bed" Previous/old bed file
-MMP_bed = "/Volumes/Iontorrent/ampliseq_files/Melanoma_panel/MMP_IAD77906_231_modified.bed"
 SCP_bed = "/Volumes/Iontorrent/ampliseq_files/Small_cancer_panel/SCP_IAD54614_124_Designed.bed"
 SCP20_bed="/Volumes/Iontorrent/ampliseq_files/Small_cancer_panel/SCP20_IAD74300_182_modified.bed"
 #MPCP_bed = "/Volumes/Iontorrent/ampliseq_files/molpath_panel/MPCP23_IAD77734_236_modified.bed"
@@ -63,12 +63,13 @@ MPCP_ARMS_bed = "/Volumes/Iontorrent/ampliseq_files/molpath_panel/MPCP_ARMS.bed"
 
 AML_bed = "/Volumes/Iontorrent/ampliseq_files/AML_panel/AML_IAD63562_182_Designed_npm1.bed"
 
-
 SMCHD1_bed = "/Volumes/Iontorrent/ampliseq_files/SMCHD1_DYSF/SMCHD1.bed"
 DYSF_bed = "/Volumes/Iontorrent/ampliseq_files/SMCHD1_DYSF/DYSF_IAD49541_124_Designed_mod.bed"
 DGP_bed = "/Volumes/Iontorrent/ampliseq_files/Dystroglycanopathy_panel/DGP_IAD73267_204_Designed.bed"
 TP53_bed = "/Volumes/Iontorrent/ampliseq_files/TP53/TP53.20140108.designed.bed"
 myeloma_bed = "/Volumes/Iontorrent/ampliseq_files/Myeloma_panel/Myeloma_IAD87360_238_modified.bed"
+melanoma_bed = "/Volumes/Iontorrent/ampliseq_files/Melanoma_panel/IAD77906_231_MLP.bed"
+
 
 hg19_index = "/Volumes/Iontorrent/ampliseq_files/hg19.fasta.fai"
 
@@ -76,6 +77,9 @@ coverage_dir = "/Volumes/Iontorrent/amplicon_analysis/coveragebed"
 
 NGS_results = "/Volumes/Iontorrent/NGS_V5_Results/" #Outdir_local
 shared_drive = "/Volumes/pathology/Molecular\ Pathology/Active\ Validated\ Tests/NGS\ V5\ data/S5\ Results/" #Outdir on S-drive
+
+
+#shared_drive = "/opt/molpath_sdrive/Active\ Validated\ Tests/NGS\ V5\ data/Test\ S5\ Results/" #Test Outdir on S-drive
 
 ##looks for vcf file under each barcode
 
@@ -267,6 +271,11 @@ def analyse_sample(barcode, folder, chip, sname):
 #		NGS_results = "/Volumes/Iontorrent/PGM_myeloma_validation/"		
 #		shared_drive = "/Volumes/pathology/Molecular\ Pathology/All_NGS_results/myeloma_validation/"
 
+	elif chip.lower() == 'melanoma':
+		chiptype = "Melanoma"
+		amplicon_bed = melanoma_bed
+
+	print chip
 # test print
 	print amplicon_bed
 
@@ -343,13 +352,14 @@ def analyse_sample(barcode, folder, chip, sname):
 
 
 def analyze_data(dir):
-	global watchdir, var_caller, vardir
+	global watchdir, var_caller, vardir, molid
+
 	run = dir.split("_")[2][4:]
 	print run
 	runname = "R"+run
 			
 	print runname
-	
+	molid = ""	
 	runs.append(run)
 	watchdir = "/Volumes/Iontorrent/"
 	sequencer = ""	
@@ -362,7 +372,11 @@ def analyze_data(dir):
 		watchdir = "/Volumes/Iontorrent-2/"
 		run2 = run.split("-")[2]
 		run=run2
-		sequencer = "_S5XLA"
+		if "_S5XL-00642" in dir:
+			sequencer = "_S5XLA"
+
+		elif "_S5XL-00700" in dir:
+			sequencer = "_S5XLB"
 		
 	bc = []
 	chip = []
@@ -419,7 +433,16 @@ def analyze_data(dir):
 					if '#CHROM' in line and 'POS' in line and 'ID' in line:
 						molid = line.strip().split('\t',)[9]
 						molid = molid.replace (" ", "-")
-						print "Sample name as per VCF file is "+molid	
+						molid = molid.split (".",)
+						print len(molid)
+						if len(molid)>1:
+							print "Sample name as per VCF file is "+molid[0]
+							molid = molid[0]
+						else :
+							print "Sample name as per VCF file is "+molid
+							molid = molid
+
+
 
 			panel = chip[count] 
 			samplename = "R"+run+"-"+panel+"_BC"+i.split("_")[1]+"_"+molid+sequencer			
@@ -460,8 +483,6 @@ else:
 #myruns = sorted(set(runs))
 #print myruns
 print localtime
-
-
 
 
 
