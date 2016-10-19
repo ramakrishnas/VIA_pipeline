@@ -435,15 +435,9 @@ def analyze_data(dir):
 						molid = molid.replace (" ", "-")
 						molid = molid.split (".",)
 						print len(molid)
-						if len(molid)>1:
-							print "Sample name as per VCF file is "+molid[0]
-							molid = molid[0]
-						else :
-							print "Sample name as per VCF file is "+molid
-							molid = molid
-
-
-
+						molid = molid[0]
+						print "Sample name as per VCF file is " + molid[0]
+						
 			panel = chip[count] 
 			samplename = "R"+run+"-"+panel+"_BC"+i.split("_")[1]+"_"+molid+sequencer			
 			analyse_sample(i, vardir, panel, samplename)
