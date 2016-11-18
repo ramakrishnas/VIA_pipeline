@@ -161,7 +161,7 @@ def somatic_filter(in_file):
 #	  			print hgvs	
 	  			alt_freq = parts[4]
 
-	 			if len(parts) < 52:
+	 			if len(parts) <= 52:
 		   			outf2.writerow(parts)
 #		   			outf.write(', '.join([parts[0], parts[1], parts[16], exon, hgvs,  "%.2f" %alt_freq, parts[19], parts[5].replace(",", "/"), parts[6], parts[8], parts[9], parts[10], parts[14], '\n']))
 					outf.writerow([parts[0], parts[1], parts[16], exon, hgvs, "%.2f" %alt_freq, parts[19], parts[5], parts[6], parts[8], parts[9], parts[10], parts[14]])
